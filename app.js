@@ -12,5 +12,16 @@ possibleChoices.forEach(choices => choices.addEventListener('click', (choice) =>
 
 function generateComputerChoice() {
   const randomNumber = Math.floor(Math.random() * 3) + 1
-  console.log(randomNumber)
+  //console.log(randomNumber)
+
+  if (randomNumber === 1) {
+    computerChoice = 'Rock'
+  }
+  if (randomNumber === 2) {
+    computerChoice = 'Paper'
+  }
+  if (randomNumber === 3) {
+    computerChoice = 'Scissors'
+  }
+  computerChoiceDisplayed.innerHTML = computerChoice
 }
