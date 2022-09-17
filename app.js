@@ -1,3 +1,5 @@
+let result
+
 const computerChoiceDisplayed = document.getElementById('computer-choice');
 const userChoiceDisplayed = document.getElementById('user-choice');
 const resultDisplayed = document.getElementById('result');
@@ -8,7 +10,8 @@ possibleChoices.forEach(choices => choices.addEventListener('click', (choice) =>
   userChoice = choice.target.id
   userChoiceDisplayed.innerHTML = userChoice
   generateComputerChoice()
-}));
+  getResult()
+}))
 
 function generateComputerChoice() {
   const randomNumber = Math.floor(Math.random() * 3) + 1
@@ -24,4 +27,29 @@ function generateComputerChoice() {
     computerChoice = 'Scissors'
   }
   computerChoiceDisplayed.innerHTML = computerChoice
+}
+
+function getResult() {
+  if (computerChoice === userChoice) {
+    result = 'It\'s a draw!' 
+  }
+  if (computerChoice === 'Rock' && userChoice === 'Paper') {
+    result = 'You won!'
+  }
+  if (computerChoice === 'Paper' && userChoice === 'Rock') {
+    result = 'You lost!'
+  }
+  if (computerChoice === 'Scissors' && userChoice === 'Rock') {
+    result = 'You won!'
+  }
+  if (computerChoice === 'Rock' && userChoice === 'Scissors') {
+    result = 'You lost!'
+  }
+  if (computerChoice === 'Paper' && userChoice === 'Scissors') {
+    result = 'You won!'
+  }
+  if (computerChoice === 'Scissors' && userChoice === 'Paper') {
+    result = 'You lost!'
+  }
+  resultDisplayed.innerHTML = result
 }
